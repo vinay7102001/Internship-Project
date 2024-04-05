@@ -8,9 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 const LogoAndCompanyInfo = (props) => {
   const [slottime, setSlotTime] = useState()
+  const [descriptionStatus, setDescriptionStatus] = useState(false)
 
   const navigate = useNavigate()
   // console.log(props.time)
+
 
   useEffect(() => {
     const val = props?.time?.slot
@@ -39,6 +41,9 @@ const LogoAndCompanyInfo = (props) => {
     }
   }, [props?.time?.slot])
 
+  const ShowDescription = () => {
+    setDescriptionStatus(!descriptionStatus)
+  }
 
 
   return (
@@ -51,7 +56,7 @@ const LogoAndCompanyInfo = (props) => {
           <img className='w-30 h-40 ' src='https://global.discourse-cdn.com/business7/uploads/fibery/original/2X/6/6cfd93782257bea97e161c9bc00d0ff9436cef37.png' />
         </div>
         <div className='basis-[100%] ml-8 flex flex-col justify-between '>
-          <div className='flex flex-col md:items-center lg:items-start'>
+          <div className='flex flex-col items-center lg:items-start'>
             <h1 className='text-[1.5rem] font-semibold my-3'>Fibery Demo</h1>
 
             <div className=''>
@@ -64,7 +69,9 @@ const LogoAndCompanyInfo = (props) => {
               </> : ''}
 
             </div>
-            <p className='hidden md:block text-wrap text-[0.9rem] mr-4 text-gray-600'>Book a meeting with our Fibery team. Talk to a real preson about how to get your processes set up with us 🦄 or not 💩</p>
+            <p className='md:hidden text-wrap text-[0.9rem] mr-4 text-blue-500 cursor-pointer' onClick={ShowDescription}>{descriptionStatus ? 'Hide Description' : 'Show Description'}</p>
+            <p className={descriptionStatus ? 'text-wrap text-[0.9rem] mr-4 text-gray-600' : 'hidden md:block text-wrap text-[0.9rem] mr-4 text-gray-600'}>Book a meeting with our Fibery team. Talk to a real preson about how to get your processes set up with us 🦄 or not 💩</p>
+
           </div>
           <p className='hidden md:block ml-2 mb-6 text-[0.8rem] cursor-pointer text-blue-500'>Cookie settings</p>
         </div>

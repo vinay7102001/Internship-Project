@@ -42,17 +42,17 @@ const SlotBoking = (props) => {
 
   return (
     <>
-      <div className={props.count ? 'basis-[24%] flex flex-col' : 'hidden'}>
-        <p className='mt-20 mb-6 text-[0.95rem]'>{`${clickedDay},${ClickedMonth} ${clickedDate}`}</p>
-        <div className='h-[22rem] w-full flex flex-col gap-4 overflow-y-auto'>
+      <div className={props.count ? 'xl:basis-[37%] md:basis-[30%] flex flex-col justify-center items-center' : 'hidden'}>
+        <p className='xl:mt-36 mt-6 mb-6 text-[0.95rem]'>{`${clickedDay},${ClickedMonth} ${clickedDate}`}</p>
+        <div className='h-[24rem] w-[80%] md:w-full flex flex-col gap-4 overflow-y-auto'>
           {arrayOfTime.map((val) => {
             return slot === val ? <>
-              <div className='flex flex-row gap-3 text-[14px]'>
-                <button className='bg-[#666666] text-white py-3 px-[1.36rem] rounded-md'>{slot}</button>
-                <button className='bg-blue-600 text-white py-3 px-[1.36rem] rounded-md mr-10' onClick={RedirectPageToForm}>Next</button>
+              <div className='mr-10 w-full flex flex-row gap-2 text-[14px]'>
+                <button className='basis-[38%] bg-[#666666] text-white py-3 px-[1.36rem] rounded-md'>{slot}</button>
+                <button className='basis-[38%] bg-blue-600 text-white py-3 px-[1.36rem] rounded-md' onClick={RedirectPageToForm}>Next</button>
               </div>
             </>
-              : <button className='mr-10 px-3 py-3 text-[14px] border-[1px] font-semibold border-blue-600 text-blue-600 rounded-md' onClick={() => { setSlot(val) }}>{val}</button>
+              : <button className='md:mr-10 mr-0 px-3 py-3 text-[14px] border-[1px] font-semibold border-blue-600 text-blue-600 rounded-md' onClick={() => { setSlot(val) }}>{val}</button>
 
             {/* <button className='mr-10 px-3 py-3 border-[1px] font-semibold border-blue-600 text-blue-600 rounded-md' onClick={() => { setSlotData(val) }}>{val}</button> */ }
 
