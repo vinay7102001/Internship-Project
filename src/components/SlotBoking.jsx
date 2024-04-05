@@ -12,38 +12,55 @@ const SlotBoking = (props) => {
   const [clickedDay, setClickedDay] = useState()
   const [clickedDate, setClickedDate] = useState()
   const [ClickedMonth, setClickedMonth] = useState()
-  // const [flag, setFlag] = useState(true)
+  const [ClickedYear, setClickedYear] = useState()
   const [slot, setSlot] = useState(undefined)
+  const [figo, setFigo] = useState()
 
   const setSlotData = (val) => {
     setSlot(val)
     // console.log(val)
   }
 
-  const RedirectPageToForm = () => {
-    navigate('/enterdetail')
+  const handelTimeseting = (val) => {
+    setSlot(val)
+    setFigo(val)
   }
+
 
   useEffect(() => {
     const newDate = new Date(props.data)
     setClickedDate(newDate.getDate())
     setClickedDay(daysOfWeek[newDate.getDay()])
     setClickedMonth(monthOfYear[newDate.getMonth()])
+    setClickedYear(newDate.getFullYear())
   }, [props.data])
 
+  const RedirectPageToForm = () => {
+    navigate('/enterdetail')
+    props.handelTimeData({ clickedDate, clickedDay, ClickedMonth, ClickedYear, slot })
+  }
 
   return (
     <>
       <div className={props.count ? 'basis-[24%] flex flex-col' : 'hidden'}>
         <p className='mt-20 mb-6 text-[0.95rem]'>{`${clickedDay},${ClickedMonth} ${clickedDate}`}</p>
-        <div className='h-[23rem] w-full flex flex-col gap-4 overflow-y-auto'>
+        <div className='h-[22rem] w-full flex flex-col gap-4 overflow-y-auto'>
           {arrayOfTime.map((val) => {
-            return <button className='mr-10 px-3 py-3 border-[1px] font-semibold border-blue-600 text-blue-600 rounded-md' onClick={() => { setSlotData(val) }}>{val}</button>
+            return slot === val ? <>
+              <div className='flex flex-row gap-3 text-[14px]'>
+                <button className='bg-[#666666] text-white py-3 px-[1.36rem] rounded-md'>{slot}</button>
+                <button className='bg-blue-600 text-white py-3 px-[1.36rem] rounded-md mr-10' onClick={RedirectPageToForm}>Next</button>
+              </div>
+            </>
+              : <button className='mr-10 px-3 py-3 text-[14px] border-[1px] font-semibold border-blue-600 text-blue-600 rounded-md' onClick={() => { setSlot(val) }}>{val}</button>
+
+            {/* <button className='mr-10 px-3 py-3 border-[1px] font-semibold border-blue-600 text-blue-600 rounded-md' onClick={() => { setSlotData(val) }}>{val}</button> */ }
+
           })}
-          {slot !== undefined ? <div className='absolute flex flex-row gap-3 bottom-5 right-12 text-[14px]'>
+          {/* {slot !== undefined ? <div className='absolute flex flex-row gap-3 bottom-5 right-12 text-[14px]'>
             <button className='bg-[#666666] text-white py-3 px-[1.25rem] rounded-sm'>{slot}</button>
             <button className='bg-blue-600 text-white py-3 px-[1.25rem] rounded-sm' onClick={RedirectPageToForm}>Next</button>
-          </div> : ''}
+          </div> : ''} */}
         </div>
       </div>
     </>

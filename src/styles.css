@@ -3,13 +3,18 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+body {
+  font-family: sans-serif !important;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
+  display: none;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 /* Handle */
