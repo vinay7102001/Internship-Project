@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path='/' element={<DemoComponent page='home' />} />
         <Route path='/enterdetail' element={<DemoComponent page='form' />} />
+        <Route path='/enterdetail/:name' element={<DemoComponent page='Schedule' />} />
       </Routes>
       {/* <div className="h-screen flex justify-center items-center bg-slate-500">
         <div className="flex justify-center  w-[60vw] h-[80vh] border-2 overflow-auto">

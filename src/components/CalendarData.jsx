@@ -16,7 +16,7 @@ const CalendarData = (props) => {
             prev2Label={null}
             showNeighboringMonth={false}
             tileClassName='chanage_button'
-            value={[new Date(2023, 10, 27), new Date(2023, 10, 30)]}//it take month as month-1
+            value={[new Date(), new Date(2024, 3, 10)]}//it take month as month-1
           />
           <div>
             <h1 className='mt-4 text-[14px] font-semibold'>Time Zone</h1>

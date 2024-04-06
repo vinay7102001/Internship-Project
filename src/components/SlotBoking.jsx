@@ -42,9 +42,9 @@ const SlotBoking = (props) => {
 
   return (
     <>
-      <div className={props.count ? 'xl:basis-[37%] md:basis-[30%] flex flex-col justify-center items-center' : 'hidden'}>
+      <div className={props.count ? 'xl:basis-[37%] md:basis-[30%] flex flex-col justify-center ' : 'hidden'}>
         <p className='xl:mt-36 mt-6 mb-6 text-[0.95rem]'>{`${clickedDay},${ClickedMonth} ${clickedDate}`}</p>
-        <div className='h-[24rem] w-[80%] md:w-full flex flex-col gap-4 overflow-y-auto'>
+        <div className='h-[22rem] w-[80%] md:w-full flex flex-col gap-4 overflow-y-auto'>
           {arrayOfTime.map((val) => {
             return slot === val ? <>
               <div className='mr-10 w-full flex flex-row gap-2 text-[14px]'>

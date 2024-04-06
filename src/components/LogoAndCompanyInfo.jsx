@@ -7,6 +7,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 
 const LogoAndCompanyInfo = (props) => {
+
   const [slottime, setSlotTime] = useState()
   const [descriptionStatus, setDescriptionStatus] = useState(false)
 
@@ -15,31 +16,44 @@ const LogoAndCompanyInfo = (props) => {
 
 
   useEffect(() => {
-    const val = props?.time?.slot
-    console.log(val)
-    console.log(val.slice(3, 5))
-    console.log(val.slice(0, 3))
-    console.log(parseInt(val.slice(0, 2)))
 
-    if (val.slice(3, 5) === '00') {
-      setSlotTime(`${val.slice(0, 3)}45`)
+    if (props.time == undefined) {
+      navigate('/')
+    } else {
 
-    }
-    else {
-      if (val.slice(0, 2) === '12') {
-        setSlotTime('01:15')
-      } else {
-        let p = parseInt(val.slice(0, 2))
-        p++
-        if (p / 10) {
-          setSlotTime(`${p}:15`)
-        }
-        else {
-          setSlotTime(`0${p}:15`)
+      const val = props?.time?.slot
+      // console.log(val)
+      // console.log(val.slice(3, 5))
+      // console.log(val.slice(0, 3))
+      // console.log(parseInt(val.slice(0, 2)))
+
+      if (val.slice(3, 5) === '00') {
+        setSlotTime(`${val.slice(0, 3)}45`)
+      }
+      else {
+        if (val.slice(0, 2) === '12') {
+          setSlotTime('01:15')
+        } else {
+          let p = parseInt(val.slice(0, 2))
+          p++
+          if (p / 10) {
+            setSlotTime(`${p}:15`)
+          }
+          else {
+            setSlotTime(`0${p}:15`)
+          }
         }
       }
+
     }
+
+
+
   }, [props?.time?.slot])
+
+  useEffect(() => {
+    props.handelFinalPageTime(`${props?.time?.slot} - ${slottime}, ${props?.time?.clickedDay}, ${props?.time?.ClickedMonth} ${props?.time?.clickedDate}, ${props?.time?.ClickedYear}`)
+  }, [slottime])
 
   const ShowDescription = () => {
     setDescriptionStatus(!descriptionStatus)
@@ -70,7 +84,7 @@ const LogoAndCompanyInfo = (props) => {
 
             </div>
             <p className='md:hidden text-wrap text-[0.9rem] mr-4 text-blue-500 cursor-pointer' onClick={ShowDescription}>{descriptionStatus ? 'Hide Description' : 'Show Description'}</p>
-            <p className={descriptionStatus ? 'text-wrap text-[0.9rem] mr-4 text-gray-600' : 'hidden md:block text-wrap text-[0.9rem] mr-4 text-gray-600'}>Book a meeting with our Fibery team. Talk to a real preson about how to get your processes set up with us 🦄 or not 💩</p>
+            <p className={descriptionStatus ? 'text-wrap text-[0.9rem] mr-4 text-gray-600' : 'hidden md:block text-wrap text-[0.9rem] mr-14 text-gray-600'}>Book a meeting with our Fibery team. Talk to a real preson about how to get your processes set up with us 🦄 or not 💩</p>
 
           </div>
           <p className='hidden md:block ml-2 mb-6 text-[0.8rem] cursor-pointer text-blue-500'>Cookie settings</p>
