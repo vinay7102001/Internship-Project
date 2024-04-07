@@ -37,8 +37,8 @@ const SchedulPage = (props) => {
                 <p className='text-[1.3rem] font-semibold mb-1'>Fibery</p>
                 <div className='mb-2 flex flex-row items-center text-gray-500 font-medium'><BsPerson size={22} className='mr-2' />{name}</div>
                 <div className='mb-2 flex flex-row items-center text-gray-500 font-medium'><MdOutlineCalendarToday className='text-gray-500 mr-2' size={22} />{props.timeInfo}</div>
-                <div className='mb-2 flex flex-row items-center text-gray-500 font-medium'><PiGlobeHemisphereEast className=' text-gray-500 mr-2' size={22} /> Uk,Irenland,Lisbon Time</div>
-                <div className='mb-4 flex flex-row items-center text-gray-500 font-medium'><BsCameraVideoFill className=' text-gray-500 mr-2' size={22} />Web conferencing details to follow</div>
+                <div className='mb-2 flex flex-row items-center text-gray-500 font-medium'><PiGlobeHemisphereEast className=' text-gray-500 mr-2' size={22} />{props.timeZone}</div>
+                <div className='mb-4 flex flex-row items-center text-gray-500 font-medium'><BsCameraVideoFill className='text-gray-500 mr-2' size={22} />Web conferencing details to follow</div>
               </div>
             </div>
 

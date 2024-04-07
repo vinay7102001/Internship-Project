@@ -12,6 +12,7 @@ const DemoComponent = (props) => {
   const [count, setCount] = useState(0)
   const [timeData, setTimeData] = useState()
   const [finalPageTime, setFinalPageTime] = useState()
+  const [timeZone, setTimeZone] = useState('Select Time Zone')
 
   const HandelDayChange = (val) => {
     // console.log(v, e)
@@ -34,12 +35,12 @@ const DemoComponent = (props) => {
           </div>
 
           {/* logo and meeting info start */}
-          {props.page !== 'Schedule' ? <LogoAndCompanyInfo count={count} page={props.page} data={data} time={timeData} handelFinalPageTime={(val) => { setFinalPageTime(val) }} /> : ''}
+          {props.page !== 'Schedule' ? <LogoAndCompanyInfo count={count} page={props.page} data={data} timeZone={timeZone} time={timeData} handelFinalPageTime={(val) => { setFinalPageTime(val) }} /> : ''}
           {/* logo and meeting info end */}
           {props.page === 'home' ?
-            <div className={count ? 'basis-[63%] flex flex-col sm:flex-row justify-center gap-4 md:items-center' : 'flex flex-col sm:flex-row justify-around gap-4 md:items-center'}>
-              <CalendarData count={count} HndelChange={HandelDayChange} />
-              <SlotBoking count={count} data={data} handelTimeData={(val) => { setTimeData(val) }} />
+            <div className={count ? 'basis-[63%] flex flex-col sm:flex-row justify-center gap-4 md:mt-8' : 'flex flex-col sm:flex-row justify-around gap-4 md:mt-8'}>
+              <CalendarData count={count} HndelChange={HandelDayChange} timeZone={timeZone} modifyTimeZone={setTimeZone} />
+              <SlotBoking count={count} data={data} handelTimeData={(val) => { setTimeData(val) }} timeZone={timeZone} />
             </div>
             : ''}
 
@@ -50,7 +51,7 @@ const DemoComponent = (props) => {
             : ''}
 
           {props.page === 'Schedule' ?
-            <SchedulPage timeInfo={finalPageTime} />
+            <SchedulPage timeInfo={finalPageTime} timeZone={timeZone} />
             : ''}
 
         </div>

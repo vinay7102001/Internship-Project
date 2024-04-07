@@ -4,7 +4,7 @@
 @import 'tailwindcss/utilities';
 
 body {
-  font-family: sans-serif !important;
+  font-family: proxima nova, sans-serif !important;
 }
 
 ::-webkit-scrollbar {

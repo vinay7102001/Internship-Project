@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
+
 const Form = () => {
   const [name, setName] = useState()
   const navigate = useNavigate()
@@ -34,10 +35,11 @@ const Form = () => {
 
           <label className='text-[14px] mb-3 font-semibold'>I want Fibery to work from: *</label>
 
-          <label className='flex pr-3 mb-3 text-gray-600' for='myself'>
-            <input className='mr-1 border-2 w-4' type='checkbox' name='myself' id='myself' value='myself' />
+          <label className='flex items-center pr-3 mb-3 text-gray-600' for='myself'>
+            <input className='accent-white mr-1 border-2 w-4 h-4' type='checkbox' name='myself' id='myself' value='myself' />
             🥕 Myself
           </label>
+
           <label className='flex pr-3 mb-3 text-gray-600' for='people'>
             <input className='mr-1 border-2 w-4' type='checkbox' name='people' id='people' value='people' />
             🧑‍🤝‍🧑 &lt;10 people

@@ -79,7 +79,7 @@ const LogoAndCompanyInfo = (props) => {
                 <div className='flex mb-3 text-xs items-center leading-5'><MdOutlineCalendarToday className='inline text-gray-600' size={20} /> <span className='text-gray-600 ml-1 text-[0.9rem] font-medium'>
                   {`${props?.time?.slot} - ${slottime}, ${props?.time?.clickedDay}, ${props?.time?.ClickedMonth} ${props?.time?.clickedDate}, ${props?.time?.ClickedYear}`}
                 </span></div>
-                <div className='flex mb-3 text-xs items-center leading-5'><PiGlobeHemisphereEast className='inline text-gray-600' size={20} /> <span className=' text-gray-600 ml-1 text-[0.9rem] font-medium'>Uk,Irenland,Lisbon Time</span></div>
+                <div className='flex mb-3 text-xs items-center leading-5'><PiGlobeHemisphereEast className='inline text-gray-600' size={20} /> <span className=' text-gray-600 ml-1 text-[0.9rem] font-medium'>{props.timeZone}</span></div>
               </> : ''}
 
             </div>

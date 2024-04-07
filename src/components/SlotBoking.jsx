@@ -36,20 +36,24 @@ const SlotBoking = (props) => {
   }, [props.data])
 
   const RedirectPageToForm = () => {
-    navigate('/enterdetail')
-    props.handelTimeData({ clickedDate, clickedDay, ClickedMonth, ClickedYear, slot })
+    if (props.timeZone === 'Select Time Zone') {
+      alert('Please Select Time Zone')
+    } else {
+      navigate('/enterdetail')
+      props.handelTimeData({ clickedDate, clickedDay, ClickedMonth, ClickedYear, slot })
+    }
   }
 
   return (
     <>
-      <div className={props.count ? 'xl:basis-[37%] md:basis-[30%] flex flex-col justify-center ' : 'hidden'}>
-        <p className='xl:mt-36 mt-6 mb-6 text-[0.95rem]'>{`${clickedDay},${ClickedMonth} ${clickedDate}`}</p>
-        <div className='h-[22rem] w-[80%] md:w-full flex flex-col gap-4 overflow-y-auto'>
+      <div className={props.count ? 'xl:basis-[37%] md:basis-[30%]  flex flex-col justify-center items-center sm:items-start' : 'hidden'}>
+        <p className='xl:mt-10 mt-6 mb-6 text-[0.95rem]'>{`${clickedDay},${ClickedMonth} ${clickedDate}`}</p>
+        <div className='h-[24rem] w-[80%] md:w-full flex flex-col gap-4 overflow-y-auto'>
           {arrayOfTime.map((val) => {
             return slot === val ? <>
               <div className='mr-10 w-full flex flex-row gap-2 text-[14px]'>
-                <button className='basis-[38%] bg-[#666666] text-white py-3 px-[1.36rem] rounded-md'>{slot}</button>
-                <button className='basis-[38%] bg-blue-600 text-white py-3 px-[1.36rem] rounded-md' onClick={RedirectPageToForm}>Next</button>
+                <button className='md:basis-[38%] basis-[48%] bg-[#666666] text-white py-3 px-[1.36rem] rounded-md'>{slot}</button>
+                <button className='md:basis-[38%] basis-[48%] bg-blue-600 text-white py-3 px-[1.36rem] rounded-md' onClick={RedirectPageToForm}>Next</button>
               </div>
             </>
               : <button className='md:mr-10 mr-0 px-3 py-3 text-[14px] border-[1px] font-semibold border-blue-600 text-blue-600 rounded-md' onClick={() => { setSlot(val) }}>{val}</button>

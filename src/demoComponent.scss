@@ -1,3 +1,5 @@
+
+
 .change_layout {
   border: none;
   width: 100%;
@@ -5,6 +7,7 @@
   // line-height: 1.125em;
   background: transparent;
   font-family: inherit;
+  font-family: proxima nova, sans-serif !important;
 }
 
 .chanage_button {
@@ -75,7 +78,30 @@
     }
 
   }
+
+  .react-calendar__navigation__prev-button{
+    background-color: transparent !important;
+    color: gray ;
+
+    &:hover{
+      background-color: transparent !important;
+      color: gray !important;
+    }
+
+    &:active{
+      background-color: transparent !important;
+      color: gray !important;
+    }
+
+    &:focus{
+      background-color: transparent !important;
+      color: gray !important;
+    }
+  }
 }
+
+
+
 
 // calenders date section
 .react-calendar__month-view__days{
@@ -99,6 +125,11 @@
       background-color: transparent !important;
       color: gray !important;
     }
+    &:focus{
+      cursor: default !important;
+      background-color: transparent !important;
+      color: gray !important;
+    }
   }
   
 }
@@ -115,11 +146,26 @@
     font-size: 12px;
   }
 }
-
 .react-calendar__tile--now {
   // background-color: red !important;
-  background-color: transparent;
+  // background-color: transparent;
+  display: flex !important;
+  flex-direction: column !important;
+  // justify-content: center !important;
+  align-items: baseline;
+  padding-bottom: 0px;
+
+  &::after{
+    display: block !important;
+    margin-top: -7px;
+    margin-bottom: -10px;
+    content: '•';
+  }
 }
+// .react-calendar__tile--now {
+//   background-color: red !important;
+//   // background-color: transparent;
+// }
 
 
 
